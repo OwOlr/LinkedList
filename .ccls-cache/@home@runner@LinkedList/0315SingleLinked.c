@@ -107,6 +107,9 @@ void main() {
 
   GetNodeWithIndex(&head, 0);
 
+  printf("\n <<Find Node!!>>\n");
+  GetNodeWithData(&head, 999);
+
 	RemoveAll(&head);
 	PrintAll(&head);
 
@@ -298,5 +301,23 @@ SNode* GetNodeWithIndex(SNode* _pHead, int _index) {
   }
   printf("data : %d , curIndex : %d \n",curNode->data,curIndex);
   return curNode;
+  
+}
+
+SNode* GetNodeWithData(SNode* _pHead, int _data){
+
+  SNode* curNode = _pHead->pNext;
+  while(curNode->data != _data){
+    if(curNode == NULL){
+      printf("NO DATA!");
+      return NULL;
+    }
+    curNode = curNode->pNext;
+  }
+
+  printf("FIND NODE!! [ %d ]\n", curNode->data);
+  return curNode;
+
+  
   
 }
